@@ -1,0 +1,18 @@
+services:
+  reverse-proxy:
+    image: traefik:v3.3
+    command: --providers.docker
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  portal:
+    labels:
+      - "traefik.http.routers.portal.rule=Host(`api-oracle-002.rk3.dev`)"
+    pull_policy: if_not_present
+    image: code-api
+    ports:
+      - 80
+    volumes:
+      - "/var/codeapi/data/codeapi.db:/App/codeapi.db"
