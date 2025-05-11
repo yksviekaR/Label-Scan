@@ -62,7 +62,7 @@ const AddSnackModal = ({ snackVis, setSnackVis}: any) => {
           justifyContent: 'center',
          }}>
           <View style={{ 
-            marginTop: "90%",
+            marginTop: "60%",
             width: "90%",
             marginLeft: "auto",
             marginRight: "auto"
@@ -80,7 +80,7 @@ const AddSnackModal = ({ snackVis, setSnackVis}: any) => {
                 marginTop: 10
               }}>
                 <Text style={{ 
-                  textAlign: 'center'
+                  textAlign: 'center', textTransform: "uppercase"
                  }}>
                     ENTER SNACK NAME: 
                 </Text>
@@ -88,7 +88,7 @@ const AddSnackModal = ({ snackVis, setSnackVis}: any) => {
                     borderWidth: 1,
                     borderStyle: "solid",
                     width: "100%",
-                    height: 30,
+                    height: 40,
                     textAlign: 'center' }} value={snackName} onChangeText={(text) => setSnackName(text)} />
 
                 <Button title='CREATE' onPress={addSnack} />

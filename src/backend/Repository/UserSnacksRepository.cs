@@ -57,9 +57,9 @@ namespace CodeApi.Repository
             return saved > 0 ? true : false;
         }
 
-        public bool SnackExists(int id_i)
+        public bool SnackExists(int id_s)
         {
-            return _context.UserSnacks.Any(p => p.Id_s == id_i);
+            return _context.UserSnacks.Any(p => p.Id_s == id_s);
         }
 
         public bool SnackExistsString(string SnackName)

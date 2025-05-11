@@ -165,7 +165,8 @@ const Populated = ({ snacks, setSnacks }: any) => {
                 }}>
                     <Text style={{ 
                         textAlign: "center",
-                        fontSize: 25
+                        fontSize: 25,
+                        textTransform: "uppercase"
                     }}>ADD INGREDIENT TO SNACK</Text>
                     <TextInput placeholder="Insert Dose" value={dose} onChangeText={newText => setDose(newText)} style={{ 
                         borderWidth: 1,

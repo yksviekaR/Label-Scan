@@ -23,8 +23,8 @@ const NotFoundModal = ({ nFoundVis, setNFoundVis, setItem, _clearCodeTemp }: any
               marginInline: "auto",
               width: "80%"
              }}>
-              <Text style={{ textAlign: 'center', fontSize: 25 }}>Item no found :(</Text>
-              <Text style={{ textAlign: 'center', fontSize: 18 }}>would you like to add this product and help others?</Text>
+              <Text style={{ textAlign: 'center', fontSize: 25, textTransform: "uppercase" }}>Item no found :(</Text>
+              <Text style={{ textAlign: 'center', fontSize: 18, textTransform: "uppercase" }}>would you like to add this product and help others?</Text>
               <View style={{ 
                 width: "100%",
                 height: 40,

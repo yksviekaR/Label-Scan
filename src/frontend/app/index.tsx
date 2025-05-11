@@ -22,7 +22,7 @@ export default function Index() {
   const [snackVis, setSnackVis] = useState(false)
   const [savedCodes, setSavedCodes] = useState<Array<{id: number, code: string}>>()
   const [item, setItem] = useState<{id_i: number, itemName: string, barcode: string, description: string, energyValue: number, fat: number, ofWhichSaturates: number, carbohydrates: number, ofWhichSugars: number, protein: number, salt: number, fiber: number, mass: number}>()
-  const [loggedUser, setLoggedUser] = useState<{id_u: number, username: string}>()
+  const [loggedUser, setLoggedUser] = useState<{id_u: number, username: string, logged: boolean}>()
   const [logged, setLogged] = useState(false)
 
   
@@ -36,9 +36,8 @@ export default function Index() {
   
   useFocusEffect(
     useCallback(() =>{
-      _retriveCodeTemp();
       _retriveLoggedUser();
-      _checkLogged();
+      _retriveCodeTemp();
       getItems();
     }, [])
   )
@@ -52,29 +51,19 @@ export default function Index() {
     }
     catch (error){
       alert("something went wrong")
-    }
-    console.log(code);
-    
-  }
-  const _checkLogged = async () =>{
-    try{
-      const value = await AsyncStorage.getItem('loged')
-      if(value !== null){
-        setLogged(JSON.parse(value))
-        alert(logged)
-      }
-    }
-    catch (error){
-      alert("something went wrong")
-    }
+    }    
   }
   const _retriveLoggedUser = async () =>{
     try{
-      const value = await AsyncStorage.getItem('user')
-      // console.log(val)
-      if(value !== null){
-        setLoggedUser(JSON.parse(value))
-        console.log(loggedUser)
+      const user = await AsyncStorage.getItem('user')
+      const loged = await AsyncStorage.getItem('loged')
+      if(user != null){
+        const usr = await JSON.parse(user)  
+        setLoggedUser(usr)
+      }
+       if(loged != null){
+        const log = await JSON.parse(loged)  
+        setLogged(log)
       }
     }
     catch (error){

@@ -15,6 +15,7 @@ function IfLogged({ loggedUser, setSnackVis }: any) {
 
     const [snacks, setSnacks] = useState<Array<{id_s: number, id_u: number, snackName: string, energyValue: number, fat: number, ofWhichSaturates: number, carbohydrates: number, ofWhichSugars: number, protein: number, salt: number, fiber: number, mass: number, ingredients: string}>>()
     
+    
 
     const [anySnacks, setAnySnacks] = useState(false)
 
@@ -25,9 +26,9 @@ function IfLogged({ loggedUser, setSnackVis }: any) {
     )
 
 
-    const getSnacks = async () =>{
+    const getSnacks = async () =>{      
         try{
-          const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/GetSnackOfUser/${loggedUser?.id_u}`)
+          const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/GetSnackOfUser/${loggedUser.id_u}`)
           
           if(!response.ok){
             console.error("something went wrong")
@@ -47,6 +48,7 @@ function IfLogged({ loggedUser, setSnackVis }: any) {
         }
         
     }
+
     
   return (
     <>

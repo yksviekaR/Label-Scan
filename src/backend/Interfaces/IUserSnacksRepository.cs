@@ -15,7 +15,7 @@ namespace CodeApi.Interfaces
 
         UserSnacks getUserSnackTrimToUpper(UserSnacksDto userSnacks);
 
-        bool SnackExists(int id_i);
+        bool SnackExists(int id_s);
 
         bool CreateUserSnack(UserSnacks userSnacks);
 

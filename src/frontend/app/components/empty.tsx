@@ -24,7 +24,8 @@ function Empty({ setSnackVis }: any) {
               textAlign: "center",
               fontSize: 25,
               fontFamily: "Segoe UI, Roboto",
-              fontWeight: 500
+              fontWeight: 500,
+              textTransform: "uppercase"
             }}>
               SNACK ADD
             </Text>
@@ -48,7 +49,7 @@ function Empty({ setSnackVis }: any) {
           height: "75%"
          }}>
             <Text style={{ 
-              textAlign: "center"
+              textAlign: "center", textTransform: "uppercase"
              }}>It seems you dont have any snacks saved</Text>
         </View>
     </>

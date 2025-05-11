@@ -153,7 +153,12 @@ namespace CodeApi.Controllers
             if (!_userSnacksRepository.SnackExists(id_s))
                 return NotFound();
 
-            return NoContent();
+            var snackToDelete = _userSnacksRepository.GetUserSnack(id_s);
+
+            if (!_userSnacksRepository.DeleteUserSnack(snackToDelete))
+                return BadRequest(ModelState);
+
+            return Ok("Snack Deleted");
         }
     }
 }

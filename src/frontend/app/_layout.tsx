@@ -23,10 +23,10 @@ export default function RootLayout() {
               if(value == "true"){
                 navigation.navigate('(account)')
               }else{
-                navigation.navigate('(login)')
+                navigation.navigate('(auth)')
               }
             }else{
-              navigation.navigate('(login)')
+              navigation.navigate('(auth)')
             }
           }
           catch (error){
@@ -41,7 +41,7 @@ export default function RootLayout() {
         fontSize: 40,
         fontWeight: "500",
       },
-      
+      headerLeft: () => null
     })} />
     <Stack.Screen name="(camera)" options={{
       headerShown: false,
@@ -55,7 +55,7 @@ export default function RootLayout() {
       headerShown: false,
       
     }} />
-    <Stack.Screen name="(login)" options={{
+    <Stack.Screen name="(auth)" options={{
       headerShown: false,
       
     }} />

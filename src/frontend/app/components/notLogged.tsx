@@ -18,7 +18,7 @@ function NotLogged() {
           height: "85%"
          }}>
             <Text style={{ 
-              textAlign: "center"
+              textAlign: "center", fontSize: 25, textTransform: "uppercase"
              }}>Log on to see your snacks</Text>
         </View>
   )

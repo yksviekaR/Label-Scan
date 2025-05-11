@@ -11,7 +11,7 @@ import IngDetailsModal from "./modals/IngDetailsModal";
 
 const snackDetails = () => {
 
-    const {snackName, ingredients} = useLocalSearchParams<{snackName: string, ingredients: string}>()
+    const {snackId, snackName, ingredients} = useLocalSearchParams<{snackName: string, ingredients: string, snackId: string}>()
     const navigation = useNavigation()
 
     const [ingr, setIngr] = useState<Array<{Id: string, ItemName: string, Barcode: string, Dose: string}>>()
@@ -25,9 +25,10 @@ const snackDetails = () => {
     )
 
     const getItems = async (barcode: string) =>{
+        console.log(barcode);
+        
         try{
-          
-          if(barcode !== null){
+          if(barcode != null){
             const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/Items/GetByBarcode/${barcode}`)
           
             if(!response.ok){
@@ -37,41 +38,67 @@ const snackDetails = () => {
             const data = await response.json()
     
             setItem(data)
+            console.log(item);
+            
             setDetailsVis(true)
           }
           
         }catch (error){
-
+            console.error(error);
+            
         }
         
       }
 
   return (
     <>
-        <IngDetailsModal detailsVis={detailsVis} setDetailsVis={setDetailsVis} item={item} setItem={setItem} />
+        <IngDetailsModal detailsVis={detailsVis} setDetailsVis={setDetailsVis} item={item} setItem={setItem} snackId={snackId} />
         <View style={{ 
             display: "flex",
             justifyContent: "center",
             alignItems: "center"
          }}>
-            <View>
-                <Text>Snack name: {snackName}</Text>
-                <Text>Ingredients:</Text>
-                <ScrollView>
+            <View style={{ 
+                marginTop: "20%"
+             }}>
+                <Text style={{ 
+                    fontSize: 25,
+                    textAlign: "center",
+                    textTransform: "uppercase"
+                 }}>Snack name: </Text>
+                 <Text style={{ 
+                    fontSize: 30,
+                    textAlign: "center",
+                    fontWeight: "600",
+                    textTransform: "uppercase"
+                  }}>{snackName}</Text>
+                <Text style={{ 
+                    fontSize: 20,
+                    textAlign: "center",
+                    textTransform: "uppercase"
+                 }}>Ingredients:</Text>
+                 {ingr?.length == 0 ? <ScrollView>
                     {ingr && ingr.map((i: any, index: number) => {
                         return(
                             <View key={index} style={{ 
                                 margin: "auto",
                                 marginBottom: 10
                             }}>
-                                <Button title={`${i.ItemName}\n Barcode: ${i.Barcode} \n Dose(g): ${i.Dose}`} onPress={({e, barcode}: any) => {
-                                    getItems(barcode)
+                                <Button title={`${i.ItemName}\n Barcode: ${i.Barcode} \n Dose(g): ${i.Dose}`} onPress={() => {
+                                    getItems(i.Barcode)
                                     
                                 }} />
                             </View>
                         )
                     })}
-                </ScrollView>
+                </ScrollView> : <View>
+                        <Text style={{ 
+                            textAlign: "center",
+                            fontSize: 15,
+                            textTransform: "uppercase"
+                         }}>THIS SNACK'S INGREDIENTS LIST IS EMPTY</Text>
+                    </View>}
+                
             </View>
         </View>
     </>

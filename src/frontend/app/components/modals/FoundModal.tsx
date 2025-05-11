@@ -43,9 +43,9 @@ const FoundModal = ({ foundVis, setFoundVis, item, setItem, _clearCodeTemp }: an
             marginRight: 'auto',
             marginTop: "60%"
             }}>
-            <Text style={{ textAlign: 'center', fontSize: 25 }}>Item name: {`\n`} {item?.itemName}</Text>
-            <Text style={{ textAlign: 'center', fontSize: 20 }}>Barcode: {`\n`} {item?.barcode}</Text>
-            <Text style={{ textAlign: 'center' }}>{item?.description}</Text>
+            <Text style={{ textAlign: 'center', fontSize: 25, textTransform: "uppercase" }}>Item name: {`\n`} {item?.itemName}</Text>
+            <Text style={{ textAlign: 'center', fontSize: 20, textTransform: "uppercase" }}>Barcode: {`\n`} {item?.barcode}</Text>
+            <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>{item?.description}</Text>
             <View style={{ 
                 marginTop: 20,
                 marginBottom: 20,
@@ -60,10 +60,10 @@ const FoundModal = ({ foundVis, setFoundVis, item, setItem, _clearCodeTemp }: an
                 flex: 50,
                 width: "50%"
                 }}>
-                <Text style={{ textAlign: 'center' }}>Energy value: {item?.energyValue}</Text>
-                <Text style={{ textAlign: 'center' }}>Fat: {item?.fat}</Text>
-                <Text style={{ textAlign: 'center' }}>Of Which Saturates: {item?.ofWhichSaturates}</Text>
-                <Text style={{ textAlign: 'center' }}>Protein: {item?.protein}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Energy value: {item?.energyValue}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Fat: {item?.fat}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Of Which Saturates: {item?.ofWhichSaturates}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Protein: {item?.protein}</Text>
                 </View>
                 <View style={{
                 display: "flex",
@@ -72,10 +72,10 @@ const FoundModal = ({ foundVis, setFoundVis, item, setItem, _clearCodeTemp }: an
                 flex: 50,
                 width: "50%"
                 }}>
-                <Text style={{ textAlign: 'center' }}>Salt: {item?.salt}</Text>
-                <Text style={{ textAlign: 'center' }}>Carbohydrates: {item?.carbohydrates}</Text>
-                <Text style={{ textAlign: 'center' }}>of which sugars: {item?.ofWhichSugars}</Text>
-                <Text style={{ textAlign: 'center' }}>Fiber: {item?.fiber}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Salt: {item?.salt}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Carbohydrates: {item?.carbohydrates}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>of which sugars: {item?.ofWhichSugars}</Text>
+                <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Fiber: {item?.fiber}</Text>
                 </View>
             </View>
             </View>

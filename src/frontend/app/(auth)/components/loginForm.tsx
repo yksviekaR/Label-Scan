@@ -13,15 +13,15 @@ function LoginForm({ setRegister }: any) {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [passVis, setPassVis] = useState(true);
-    const loggedUser = {id_u: 0, username: "string"}
+    const loggedUser = {id_u: 0, username: "string", logged: false}
 
     const navigation: any = useNavigation();
     
 
-    const _setLogin = async (loggedUser: {id_u: number, username: string}) => {
+    const _setLogin = async (loggedUser: {id_u: number, username: string, logged: boolean}) => {
         try{
-          await AsyncStorage.setItem('loged', "true")
           await AsyncStorage.setItem('user', JSON.stringify(loggedUser));
+          await AsyncStorage.setItem('loged', "true")
         }
         catch(error){
           alert("something went wrong")

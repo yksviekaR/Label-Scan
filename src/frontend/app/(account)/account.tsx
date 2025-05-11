@@ -3,13 +3,16 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { CameraView } from 'expo-camera'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useNavigation, useFocusEffect } from 'expo-router'
+import { useNavigation, useFocusEffect,  } from 'expo-router'
+import { useIsFocused } from '@react-navigation/native'
 
 const account = () => {
 
   const navigation: any = useNavigation();
 
   const [loggedUser, setLoggedUser] = useState<{id_u: number, username: string}>()
+
+  const isFocus = useIsFocused()
 
   useFocusEffect(
       useCallback(()=>{
@@ -42,7 +45,7 @@ const account = () => {
     }
 
   return (
-    <View style={{ 
+    isFocus ? <View style={{ 
       display: 'flex',
       justifyContent: 'center',
       flexDirection: "column"
@@ -73,7 +76,7 @@ const account = () => {
         </View>
       </View>
       
-    </View>
+    </View> : null
   )
 }
 

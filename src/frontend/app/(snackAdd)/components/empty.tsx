@@ -11,7 +11,7 @@ import { useRoute } from "@react-navigation/native";
 const Empty = () => {
   return (
     <View>
-        <Text style={{ margin: "auto", textAlign: "center" }}>It seems you dont have any snacks saved</Text>
+        <Text style={{ margin: "auto", textAlign: "center", textTransform: "uppercase" }}>It seems you dont have any snacks saved</Text>
     </View>
   )
 }

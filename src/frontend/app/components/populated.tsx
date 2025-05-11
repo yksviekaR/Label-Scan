@@ -12,6 +12,22 @@ import DeleteIcon from 'react-native-vector-icons/MaterialIcons'
 function Populated({ snacks, setSnacks, setSnackVis }: any) {
 
   const router = useRouter()
+
+  const deleteSnack = async (id: any) =>{
+    try{
+      const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/${id}`, {
+        method: "DELETE"
+      });
+      if(!response.ok){
+        console.error("something went wrong");
+      }
+      alert("deleted succesfuly");
+      window.location.reload()
+    }catch(err){
+      console.error(err);
+      
+    }
+  }
     
   return (
     <>
@@ -63,7 +79,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
                 margin: 20,
                 alignSelf: "center"
                 }}>
-                <Text style={{ textAlign: "center", fontSize: 30, fontWeight: 800 }}>{i.snackName}</Text>
+                <Text style={{ textAlign: "center", fontSize: 30, fontWeight: 800, textTransform: "uppercase"  }}>{i.snackName}</Text>
                 <View style={{ 
                   display: "flex",
                   justifyContent: "space-between",
@@ -74,20 +90,20 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
                   justifyContent: "space-around",
                   flexDirection: "column",
                   }}>
-                    <Text style={{ textAlign: 'center' }}>Energy value: {i.energyValue}g</Text>
-                    <Text style={{ textAlign: 'center' }}>Fat: {i.fat}g</Text>
-                    <Text style={{ textAlign: 'center' }}>Of Which Saturates: {i.ofWhichSaturates}g</Text>
-                    <Text style={{ textAlign: 'center' }}>Protein: {i.protein}g</Text>         
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Energy value: {i.energyValue}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Fat: {i.fat}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Of Which Saturates: {i.ofWhichSaturates}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Protein: {i.protein}g</Text>         
                   </View>
                   <View style={{ 
                   display: "flex",
                   justifyContent: "space-between",
                   flexDirection: "column"
                   }}>
-                    <Text style={{ textAlign: 'center' }}>Salt: {i.salt}g</Text>
-                    <Text style={{ textAlign: 'center' }}>Carbohydrates: {i.carbohydrates}g</Text>
-                    <Text style={{ textAlign: 'center' }}>of which sugars: {i.ofWhichSugars}g</Text>
-                    <Text style={{ textAlign: 'center' }}>Fiber: {i.fiber}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Salt: {i.salt}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Carbohydrates: {i.carbohydrates}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>of which sugars: {i.ofWhichSugars}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Fiber: {i.fiber}g</Text>
                   </View>
                 </View>
                 <Text style={{ textAlign: "center", fontStyle:"italic" }}>Per {i.mass}g of snack</Text>
@@ -97,7 +113,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
                   <Button  title="See ingredients" onPress={() =>{
                     router.push({
                       pathname: "/(details)/snackDetails",
-                      params: {snackName: i.snackName, ingredients: i.ingredients}
+                      params: {snackName: i.snackName, ingredients: i.ingredients, snackId: String(i.id_s)}
                     })
                   }} />
                 </View>
@@ -106,7 +122,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
                   marginInline: "auto",
                   justifyContent: "center",
                   marginTop: 5
-                 }}>
+                 }} onPress={() => {deleteSnack(i.id_s)}}>
                  <DeleteIcon name="delete-forever" size={45} color="rgb(220, 48, 48)" />
                 </TouchableOpacity>
               </View>
@@ -114,9 +130,10 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
           })}
         </ScrollView>
         </View>
-        
     </>
   )
+
+  
 }
 
 export default Populated

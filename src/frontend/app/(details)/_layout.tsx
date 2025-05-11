@@ -3,7 +3,8 @@ import { Stack } from "expo-router";
 export default function RootLayout() {
   return <Stack>
     <Stack.Screen name="snackDetails" options={{
-      headerShown: false
+      headerShown: false,
+      title: "SNACK DETAILS"
     }} />
   </Stack>;
 }

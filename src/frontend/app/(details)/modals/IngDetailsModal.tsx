@@ -1,7 +1,10 @@
-import React from 'react'
+import { useFocusEffect } from 'expo-router'
+import React, { useCallback, useState } from 'react'
 import { Modal, View, Text, Button } from 'react-native'
 
-const IngDetailsModal = ({detailsVis, setDetailsVis, item, setItem}: any) => {
+const IngDetailsModal = ({ detailsVis, setDetailsVis, item, setItem }: any) => {
+
+
   return (
     <>
         <Modal visible={detailsVis}>
@@ -49,16 +52,6 @@ const IngDetailsModal = ({detailsVis, setDetailsVis, item, setItem}: any) => {
                         <Text style={{ textAlign: 'center' }}>Fiber: {item?.fiber}</Text>
                         </View>
                     </View>
-                    </View>
-                    <View style={{ 
-                      width: "80%",
-                      height: 50,
-                      marginInline: "auto",
-                      marginBottom: "1%"
-                     }}>
-                      <Button title='DELETE' onPress={() => {
-                        
-                      }} />
                     </View>
                     <View style={{ 
                       width: "80%",
