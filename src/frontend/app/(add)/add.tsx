@@ -5,6 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from "react";
 import { useNavigation, useFocusEffect } from 'expo-router'
+import url from "../../config/url";
+
 
 const add = () => {
 
@@ -25,7 +27,7 @@ const add = () => {
   )
 
   const postItem = () => {
-    fetch('https://ruling-together-prawn.ngrok-free.app/api/Items', {
+    fetch(`${url}/api/Items`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItem)
@@ -39,7 +41,7 @@ const add = () => {
     newItem = {id_i: 0, itemName: "", barcode: "", description: "", energyValue: 0, fat: 0, ofWhichSaturates: 0, carbohydrates: 0, ofWhichSugars: 0, protein: 0, salt: 0, fiber: 0, mass: 0}
 
     _clearCodeTemp();
-    navigation.navigate('index')
+    navigation.replace('index')
   }
 
   const _retriveCodeTemp = async () =>{

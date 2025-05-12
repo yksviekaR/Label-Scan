@@ -6,6 +6,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from "react";
 import { useNavigation } from 'expo-router'
 import PasswordIcon from 'react-native-vector-icons/Feather'
+import url from "../../../config/url";
+
 
 function RegisterForm({ setRegister }: any) {
 
@@ -24,13 +26,13 @@ function RegisterForm({ setRegister }: any) {
         catch(error){
           alert("something went wrong")
         }
-        navigation.navigate('index')
+        navigation.replace('index')
     }
 
     const register = () => {
       if(password == passwordConf){
         
-        fetch(`https://ruling-together-prawn.ngrok-free.app/register?username=${login}&password=${password}`, {
+        fetch(`${url}/register?username=${login}&password=${password}`, {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
         }).then(() => {

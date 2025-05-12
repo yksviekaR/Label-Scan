@@ -7,6 +7,8 @@ import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Route } from "expo-router/build/Route";
 import { useRoute } from "@react-navigation/native";
+import url from "../../../config/url";
+
 
 const Populated = ({ snacks, setSnacks }: any) => {
 
@@ -30,7 +32,7 @@ const Populated = ({ snacks, setSnacks }: any) => {
             const code = await AsyncStorage.getItem("codeTemp")
             
             if(code !== undefined){
-                const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/Items/GetByBarcode/${code}`)
+                const response = await fetch(`${url}/api/Items/GetByBarcode/${code}`)
 
                 if(!response.ok){
                     console.error("soemthing went wrong");
@@ -114,7 +116,7 @@ const Populated = ({ snacks, setSnacks }: any) => {
         
         
         try{
-            const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/${id_s}`, {
+            const response = await fetch(`${url}/api/UserSnacksControler/${id_s}`, {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json"
@@ -129,7 +131,7 @@ const Populated = ({ snacks, setSnacks }: any) => {
             console.log("added");
             
             _clearCodeTemp()
-            navigation.navigate("index")
+            navigation.replace("index")
 
 
         }catch(err){

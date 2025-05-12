@@ -6,6 +6,8 @@ import { useCameraPermissions } from "expo-camera"
 import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Route } from "expo-router/build/Route";
+import url from "../../../config/url";
+
 
 const AddSnackModal = ({ snackVis, setSnackVis}: any) => {
 
@@ -40,7 +42,7 @@ const AddSnackModal = ({ snackVis, setSnackVis}: any) => {
       snackName: snackName,
       ingredients: "[]"
     }
-    fetch('https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler', {
+    fetch(`${url}/api/UserSnacksControler`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newSnack)

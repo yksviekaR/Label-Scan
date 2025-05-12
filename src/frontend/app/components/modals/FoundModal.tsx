@@ -88,7 +88,7 @@ const FoundModal = ({ foundVis, setFoundVis, item, setItem, _clearCodeTemp }: an
               <Button title='ADD to snack' disabled={!logged} onPress={() => {
                 setFoundVis(false)
                 setItem(undefined)
-                navigation.navigate("(snackAdd)")
+                navigation.replace("(snackAdd)")
               }} />
             </View>
             <View style={{ 

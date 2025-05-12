@@ -1,12 +1,12 @@
 import { View, Text, TextInputComponent, TextInput, Button, Pressable } from 'react-native'
 import React, { useEffect } from 'react'
-import { CameraView } from 'expo-camera'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from "react";
-import { useNavigation } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import PasswordIcon from 'react-native-vector-icons/Feather'
 import { jwtDecode } from 'jwt-decode'
+import url from "../../../config/url";
+
 
 function LoginForm({ setRegister }: any) {
 
@@ -16,6 +16,8 @@ function LoginForm({ setRegister }: any) {
     const loggedUser = {id_u: 0, username: "string", logged: false}
 
     const navigation: any = useNavigation();
+
+    const router = useRouter()
     
 
     const _setLogin = async (loggedUser: {id_u: number, username: string, logged: boolean}) => {
@@ -26,12 +28,12 @@ function LoginForm({ setRegister }: any) {
         catch(error){
           alert("something went wrong")
         }
-        navigation.navigate('(account)')
+        navigation.replace("(account)")
     }
 
     const loging = async () => {
         try{
-            const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/login?username=${login}&password=${password}`, {method: "post"})
+            const response = await fetch(`${url}/login?username=${login}&password=${password}`, {method: "post"})
             
             if(!response.ok){
               alert("No user found")

@@ -32,7 +32,6 @@ function Empty({ setSnackVis }: any) {
             <View style={{ 
               alignSelf: "center",
               height: 40,
-              backgroundColor: "blue",
               borderRadius: 10,
               width: "40%"
             }}>

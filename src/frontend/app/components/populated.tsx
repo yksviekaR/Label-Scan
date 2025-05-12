@@ -7,6 +7,8 @@ import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Route } from "expo-router/build/Route";
 import DeleteIcon from 'react-native-vector-icons/MaterialIcons'
+import url from "../../config/url";
+
 
 
 function Populated({ snacks, setSnacks, setSnackVis }: any) {
@@ -15,7 +17,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
 
   const deleteSnack = async (id: any) =>{
     try{
-      const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/${id}`, {
+      const response = await fetch(`${url}/api/UserSnacksControler/${id}`, {
         method: "DELETE"
       });
       if(!response.ok){
@@ -50,7 +52,6 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
             <View style={{ 
               alignSelf: "center",
               height: 40,
-              backgroundColor: "blue",
               borderRadius: 10,
               width: "40%"
             }}>
@@ -73,37 +74,40 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
               <View key={index} style={{ 
                 padding: 25,
                 borderRadius: 20,
-                width: "90%",
+                width: "95%",
                 height: 280,
                 backgroundColor: "lightblue",
                 margin: 20,
-                alignSelf: "center"
+                marginInline: "auto"
                 }}>
                 <Text style={{ textAlign: "center", fontSize: 30, fontWeight: 800, textTransform: "uppercase"  }}>{i.snackName}</Text>
                 <View style={{ 
                   display: "flex",
                   justifyContent: "space-between",
                   flexDirection: "row",
+                  width: "100%",
+                  marginInline: "auto"
                   }}>
                   <View style={{ 
                   display: "flex",
                   justifyContent: "space-around",
                   flexDirection: "column",
+                  marginRight: 5
                   }}>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Energy value: {i.energyValue}g</Text>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Fat: {i.fat}g</Text>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Of Which Saturates: {i.ofWhichSaturates}g</Text>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Protein: {i.protein}g</Text>         
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12 }}>Energy value: {i.energyValue}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>Fat: {i.fat}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>Of Which Saturates: {i.ofWhichSaturates}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>Protein: {i.protein}g</Text>         
                   </View>
                   <View style={{ 
                   display: "flex",
                   justifyContent: "space-between",
-                  flexDirection: "column"
+                  flexDirection: "column",
                   }}>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Salt: {i.salt}g</Text>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Carbohydrates: {i.carbohydrates}g</Text>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>of which sugars: {i.ofWhichSugars}g</Text>
-                    <Text style={{ textAlign: 'center', textTransform: "uppercase" }}>Fiber: {i.fiber}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>Salt: {i.salt}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>Carbohydrates: {i.carbohydrates}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>of which sugars: {i.ofWhichSugars}g</Text>
+                    <Text style={{ textAlign: 'center', textTransform: "uppercase", fontSize: 12  }}>Fiber: {i.fiber}g</Text>
                   </View>
                 </View>
                 <Text style={{ textAlign: "center", fontStyle:"italic" }}>Per {i.mass}g of snack</Text>
@@ -121,6 +125,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
                   width: "20%",
                   marginInline: "auto",
                   justifyContent: "center",
+                  alignItems: "center",
                   marginTop: 5
                  }} onPress={() => {deleteSnack(i.id_s)}}>
                  <DeleteIcon name="delete-forever" size={45} color="rgb(220, 48, 48)" />

@@ -6,14 +6,18 @@ import { useCameraPermissions } from "expo-camera"
 import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Route } from "expo-router/build/Route";
-import { useRoute } from "@react-navigation/native";
+import { useIsFocused, useRoute } from "@react-navigation/native";
 import Populated from "./components/populated";
 import Empty from "./components/empty";
 import { loadOptions } from "@babel/core";
+import url from "../../config/url";
+
 
 const snackAdd = () => {
 
     const navigation = useNavigation()
+
+    const isFocused = useIsFocused()
 
 
     const [snacks, setSnacks] = useState<Array<{id_s: number, id_u: number, snackName: string, energyValue: number, fat: number, ofWhichSaturates: number, carbohydrates: number, ofWhichSugars: number, protein: number, salt: number, fiber: number, mass: number, ingredients: string}>>()
@@ -49,7 +53,7 @@ const snackAdd = () => {
           if(value !== null){
             const prepValue = JSON.parse(value)
           
-            const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/GetSnackOfUser/${prepValue.id_u}`)
+            const response = await fetch(`${url}/api/UserSnacksControler/GetSnackOfUser/${prepValue.id_u}`)
             
             if(!response.ok){
               console.error("something went wrong")
@@ -70,9 +74,9 @@ const snackAdd = () => {
     }
 
   return (
-    <>
+    isFocused ? <>
         {(anySnacks == true) ? <Populated snacks={snacks} setSnacks={setSnacks} /> : <Empty />}
-    </>
+    </> : null
   )
 }
 

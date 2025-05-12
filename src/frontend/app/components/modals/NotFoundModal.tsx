@@ -32,7 +32,7 @@ const NotFoundModal = ({ nFoundVis, setNFoundVis, setItem, _clearCodeTemp }: any
                 <Button title='ADD' onPress={() => {
                   setNFoundVis(false)
                   setItem(undefined)
-                  navigation.navigate("(add)")
+                  navigation.replace("(add)")
                 }} />
               </View>
               <View style={{ 

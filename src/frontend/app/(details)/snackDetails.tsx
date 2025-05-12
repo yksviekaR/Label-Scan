@@ -7,12 +7,16 @@ import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Route } from "expo-router/build/Route";
 import IngDetailsModal from "./modals/IngDetailsModal";
+import { useIsFocused } from "@react-navigation/native";
+import url from "../../config/url";
+
 
 
 const snackDetails = () => {
 
     const {snackId, snackName, ingredients} = useLocalSearchParams<{snackName: string, ingredients: string, snackId: string}>()
-    const navigation = useNavigation()
+    const navigation:any = useNavigation()
+    const isFocused = useIsFocused()
 
     const [ingr, setIngr] = useState<Array<{Id: string, ItemName: string, Barcode: string, Dose: string}>>()
     const [detailsVis, setDetailsVis] = useState(false)
@@ -29,7 +33,7 @@ const snackDetails = () => {
         
         try{
           if(barcode != null){
-            const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/Items/GetByBarcode/${barcode}`)
+            const response = await fetch(`${url}/api/Items/GetByBarcode/${barcode}`)
           
             if(!response.ok){
               console.error("something went wrong")
@@ -51,7 +55,7 @@ const snackDetails = () => {
       }
 
   return (
-    <>
+    isFocused ? <>
         <IngDetailsModal detailsVis={detailsVis} setDetailsVis={setDetailsVis} item={item} setItem={setItem} snackId={snackId} />
         <View style={{ 
             display: "flex",
@@ -77,12 +81,13 @@ const snackDetails = () => {
                     textAlign: "center",
                     textTransform: "uppercase"
                  }}>Ingredients:</Text>
-                 {ingr?.length == 0 ? <ScrollView>
+                 {(ingr?.length) != 0 ? <ScrollView>
                     {ingr && ingr.map((i: any, index: number) => {
                         return(
                             <View key={index} style={{ 
                                 margin: "auto",
-                                marginBottom: 10
+                                marginBottom: 10,
+                                maxWidth: "80%"
                             }}>
                                 <Button title={`${i.ItemName}\n Barcode: ${i.Barcode} \n Dose(g): ${i.Dose}`} onPress={() => {
                                     getItems(i.Barcode)
@@ -91,17 +96,33 @@ const snackDetails = () => {
                             </View>
                         )
                     })}
-                </ScrollView> : <View>
+                 </ScrollView> : <View>
                         <Text style={{ 
                             textAlign: "center",
                             fontSize: 15,
                             textTransform: "uppercase"
-                         }}>THIS SNACK'S INGREDIENTS LIST IS EMPTY</Text>
+                         }}>THIS SNACK'S INGREDIENTS {`\n`} LIST IS EMPTY</Text>
                     </View>}
                 
             </View>
+            
         </View>
-    </>
+        <View style={{ 
+                position: "absolute",
+                bottom: 0,
+                width: "100%",
+                height: "10%"
+             }}>
+                <View style={{ 
+                    width: "40%",
+                    marginInline: "auto"
+                 }}>
+                    <Button title="Go Back" onPress={() =>{
+                        navigation.replace("index")
+                    }} />
+                </View>
+            </View>
+    </> : null
   )
 }
 

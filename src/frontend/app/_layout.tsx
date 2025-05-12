@@ -8,14 +8,11 @@ import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
-export default function RootLayout() {
-
-
-  return <Stack>
-    <Stack.Screen name="index" options={ ({ navigation }) => ({
-      headerRight: () => (
-        <TouchableOpacity style={{ 
-          justifyContent: "center"
+function Title({navigation}: {navigation: any}) {
+  return (
+    <View style={{ flexDirection: "row", alignItems: "stretch", justifyContent: "space-between" }}>
+      <Text style={{ fontSize: 40, fontWeight: "500" }}>Label Scan</Text>
+      <TouchableOpacity style={{ 
         }} onPressIn={async () => {
           try{
             const value = await AsyncStorage.getItem('loged')
@@ -35,14 +32,21 @@ export default function RootLayout() {
         }}>
           <Icon name="user-o" size={50}/>
         </TouchableOpacity>
-      ),
-      title: "LABEL SCAN",
-      headerTitleStyle: {
-        fontSize: 40,
-        fontWeight: "500",
-      },
-      headerLeft: () => null
-    })} />
+    </View>
+  );
+}
+
+export default function RootLayout() {
+  return <Stack>
+    <Stack.Screen name="index" options={ ({ navigation }) => ({
+      headerTitle: () => <Title navigation={navigation} />,
+      headerBackVisible: false,
+      headerLeft: () =>{
+        return null
+      }
+    })}>
+    </Stack.Screen>
+    
     <Stack.Screen name="(camera)" options={{
       headerShown: false,
       
@@ -64,6 +68,10 @@ export default function RootLayout() {
       
     }} />
     <Stack.Screen name="(snackAdd)" options={{
+      headerShown: false,
+      
+    }} />
+    <Stack.Screen name="(details)" options={{
       headerShown: false,
       
     }} />

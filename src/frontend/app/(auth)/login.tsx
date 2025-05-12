@@ -9,18 +9,20 @@ import newSnack from '../(newSnack)/newSnack'
 import PasswordIcon from 'react-native-vector-icons/Feather'
 import LoginForm from './components/loginForm'
 import RegisterForm from './components/registerForm'
+import { useIsFocused } from '@react-navigation/native'
 
 
 const login = () => {
 
-  const navigation: any = useNavigation();
+
+  const isFocused = useIsFocused()
 
   
   const [register, setRegister] =  useState(false);
 
 
   return (
-    <View style={{ 
+    isFocused ? <View style={{ 
         display: 'flex',
         justifyContent: "center",
         flexDirection: "column",
@@ -28,7 +30,7 @@ const login = () => {
         margin: 'auto'
      }}>
       {(register == false) ? <LoginForm setRegister={setRegister} /> : <RegisterForm setRegister={setRegister} />}
-    </View>
+    </View> : null
   )
 }
 

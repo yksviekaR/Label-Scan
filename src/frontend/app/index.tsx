@@ -12,8 +12,11 @@ import NotLogged from "./components/notLogged";
 import FoundModal from "./components/modals/FoundModal";
 import NotFoundModal from "./components/modals/NotFoundModal";
 import AddSnackModal from "./components/modals/AddSnackModal";
+import { useIsFocused } from "@react-navigation/native";
+import url from "../config/url";
 
 export default function Index() {
+
 
   const navigation: any = useNavigation()
 
@@ -31,6 +34,8 @@ export default function Index() {
 
   const [permission, requestPermission] = useCameraPermissions();
 
+  const isFocused = useIsFocused()
+
   const isPermissinGranted = Boolean(permission?.granted)
 
   
@@ -42,6 +47,7 @@ export default function Index() {
     }, [])
   )
 
+  
   const _retriveCodeTemp = async () =>{
     try{
       const value = await AsyncStorage.getItem('codeTemp')
@@ -89,7 +95,7 @@ export default function Index() {
       console.log(code);
       
       if(code !== null){
-        const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/Items/GetByBarcode/${code}`)
+        const response = await fetch(`${url}/api/Items/GetByBarcode/${code}`)
       
         if(!response.ok){
           console.error("something went wrong")
@@ -108,7 +114,7 @@ export default function Index() {
   }
 
   return (
-    <>
+    isFocused ? <>
 
       {/* <Button title="check1" onPress={() => {setFoundVis(!foundVis)}} />
       <Button title="check2" onPress={() => {setNFoundVis(!nFoundVis)}} />
@@ -148,7 +154,7 @@ export default function Index() {
                   if(!isPermissinGranted){
                     requestPermission()
                   }else{
-                    navigation.navigate("(camera)")
+                    navigation.replace("(camera)")
                   }
                }}>
                 <View style={{ 
@@ -160,7 +166,7 @@ export default function Index() {
             </View>
         </View>
       </View>
-    </>
+    </> : null
     
   );
 }

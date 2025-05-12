@@ -8,6 +8,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Route } from "expo-router/build/Route";
 import Empty from './empty'
 import Populated from './populated'
+import url from "../../config/url";
+
 
 
 function IfLogged({ loggedUser, setSnackVis }: any) {
@@ -28,7 +30,7 @@ function IfLogged({ loggedUser, setSnackVis }: any) {
 
     const getSnacks = async () =>{      
         try{
-          const response = await fetch(`https://ruling-together-prawn.ngrok-free.app/api/UserSnacksControler/GetSnackOfUser/${loggedUser.id_u}`)
+          const response = await fetch(`${url}/api/UserSnacksControler/GetSnackOfUser/${loggedUser.id_u}`)
           
           if(!response.ok){
             console.error("something went wrong")

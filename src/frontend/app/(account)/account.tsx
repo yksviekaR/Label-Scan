@@ -1,16 +1,17 @@
 import { View, Text, Button } from 'react-native'
-import React, { useEffect, useState, useCallback } from 'react'
-import { CameraView } from 'expo-camera'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React, { useState, useCallback } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useNavigation, useFocusEffect,  } from 'expo-router'
-import { useIsFocused } from '@react-navigation/native'
+import { useNavigation, useFocusEffect, useRouter, useLocalSearchParams,  } from 'expo-router'
+import { useIsFocused, useRoute } from '@react-navigation/native'
+
 
 const account = () => {
 
   const navigation: any = useNavigation();
+  const router = useRouter()
 
   const [loggedUser, setLoggedUser] = useState<{id_u: number, username: string}>()
+  const {check} = useLocalSearchParams()
 
   const isFocus = useIsFocused()
 
@@ -24,11 +25,12 @@ const account = () => {
       try{
         await AsyncStorage.setItem('loged', "false")
         await AsyncStorage.setItem('user', "")
+        navigation.replace('index')
       }
       catch(error){
         alert("something went wrong")
       }
-      navigation.navigate('index')
+      
     }
 
     const _retriveLoggedUser = async () =>{
@@ -63,7 +65,7 @@ const account = () => {
           width: "90%",
           height: 40
          }}>
-          <Button title='logof' onPress={_delog}/>
+          <Button title='logout' onPress={_delog}/>
         </View>
         <View style={{ 
           margin: "auto",
@@ -71,7 +73,7 @@ const account = () => {
           height: 40
          }}>
         <Button title='Menu' onPress={() => {
-          navigation.navigate('index')
+          navigation.replace("index")
         }}/>
         </View>
       </View>

@@ -24,7 +24,7 @@ const camera = () => {
     catch(error){
       alert("something went wrong")
     }
-    navigation.goBack()
+    navigation.replace("index")
   }
 
   if(!permission?.granted){
@@ -35,7 +35,7 @@ const camera = () => {
         width: "50%"
        }}>
         <Button title="Go back" onPress={() =>{
-          navigation.goBack()
+          navigation.replace("index")
         }} />
       </View>
     </View>
@@ -105,7 +105,7 @@ const camera = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
                }} onPress={() =>{
-                navigation.goBack()
+                navigation.replace("index")
                }}>
                 <CancelIcon name='return-down-back' size={40} color="#fff" />
               </TouchableOpacity>
