@@ -24,7 +24,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
         console.error("something went wrong");
       }
       alert("deleted succesfuly");
-      window.location.reload()
+
     }catch(err){
       console.error(err);
       
@@ -62,14 +62,14 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
           </View>
         </View>
         <View style={{ 
-          height: "75%"
+          height: "70%"
          }}>
           <ScrollView  contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
           flexDirection: "column",
           }}>
-          {snacks && snacks.map((i: any, index: any) => {
+          {snacks != undefined && snacks.map((i: any, index: any) => {
             return(
               <View key={index} style={{ 
                 padding: 25,

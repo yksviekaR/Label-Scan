@@ -33,14 +33,17 @@ function LoginForm({ setRegister }: any) {
 
     const loging = async () => {
         try{
-            const response = await fetch(`${url}/login?username=${login}&password=${password}`, {method: "post"})
+            const response = await fetch(`${url}/login?username=${login}&password=${password}`, {method: "POST"})
             
             if(!response.ok){
               alert("No user found")
               console.error("something went wrong")
             }
-      
+            
+            
             const token = await response.text()
+            console.log(token);
+            
             const user = jwtDecode(token)
             if(user !== undefined){
               loggedUser.id_u = Number(user.sub)

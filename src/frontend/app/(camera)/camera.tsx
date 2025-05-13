@@ -7,12 +7,15 @@ import { useNavigation } from 'expo-router'
 import FlashIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import CancelIcon from 'react-native-vector-icons/Ionicons'
 import { useIsFocused } from '@react-navigation/native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const camera = () => {
 
   const navigation: any = useNavigation();
   const isFocus = useIsFocused()
   const [permission, requestPermission] = useCameraPermissions()
+  const insets = useSafeAreaInsets()
+  
 
   const [torch, setTorch] = useState(false)
   const [isCameraReady, setCameraReady] = useState(false)
@@ -79,9 +82,10 @@ const camera = () => {
               flexDirection: "row",
               margin: "0 auto",
               width: "100%",
-              height: "15%",
+              height: "20%",
               bottom: 0,
-              backgroundColor: "rgba(44, 44, 44, 0.45)"
+              backgroundColor: "rgba(44, 44, 44, 0.45)",
+              paddingBottom: insets.bottom
              }}>
               <TouchableOpacity style={{ 
                 margin: "auto",

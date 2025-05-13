@@ -9,6 +9,7 @@ import { Route } from "expo-router/build/Route";
 import IngDetailsModal from "./modals/IngDetailsModal";
 import { useIsFocused } from "@react-navigation/native";
 import url from "../../config/url";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 
@@ -17,6 +18,7 @@ const snackDetails = () => {
     const {snackId, snackName, ingredients} = useLocalSearchParams<{snackName: string, ingredients: string, snackId: string}>()
     const navigation:any = useNavigation()
     const isFocused = useIsFocused()
+    const insets = useSafeAreaInsets()
 
     const [ingr, setIngr] = useState<Array<{Id: string, ItemName: string, Barcode: string, Dose: string}>>()
     const [detailsVis, setDetailsVis] = useState(false)
@@ -111,7 +113,8 @@ const snackDetails = () => {
                 position: "absolute",
                 bottom: 0,
                 width: "100%",
-                height: "10%"
+                height: "15%",
+                paddingBottom: insets.bottom
              }}>
                 <View style={{ 
                     width: "40%",

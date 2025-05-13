@@ -53,7 +53,6 @@ function RegisterForm({ setRegister }: any) {
 
   return (
     <>
-        <Button title='log' onPress={_setLogin}/>
         <View style={{ 
         display: 'flex',
         justifyContent: "center",

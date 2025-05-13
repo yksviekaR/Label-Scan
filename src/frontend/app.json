@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "LabelScan",
-    "slug": "LabelScan",
+    "slug": "labelscan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.yksviekar.labelscan"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +38,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "9ea1e5ef-0ae5-42a8-b42b-a3cb7ade5f1b"
+      }
+    },
+    "owner": "yksviekar"
   }
 }

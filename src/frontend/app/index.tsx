@@ -14,11 +14,13 @@ import NotFoundModal from "./components/modals/NotFoundModal";
 import AddSnackModal from "./components/modals/AddSnackModal";
 import { useIsFocused } from "@react-navigation/native";
 import url from "../config/url";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Index() {
 
 
   const navigation: any = useNavigation()
+  const insets = useSafeAreaInsets()
 
   const [foundVis, setFoundVis] = useState(false)
   const [nFoundVis, setNFoundVis] = useState(false)
@@ -46,6 +48,8 @@ export default function Index() {
       getItems();
     }, [])
   )
+
+  
 
   
   const _retriveCodeTemp = async () =>{
@@ -137,9 +141,10 @@ export default function Index() {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        height: "15%",
+        height: "20%",
         borderTopWidth: 1,
-        borderStyle: "solid"
+        borderStyle: "solid",
+        paddingBottom: insets.bottom
       }}>
         <View>
             <View>

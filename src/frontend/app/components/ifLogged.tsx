@@ -38,13 +38,15 @@ function IfLogged({ loggedUser, setSnackVis }: any) {
 
           const data = await response.json()
 
-          if(data === undefined){
-            setAnySnacks(false)
-          }else{
+
+          if(Array.isArray(data) && data.length != 0){
             setAnySnacks(true)
             setSnacks(data)
+
+          }else{
+            setAnySnacks(false)
+
           }
-          console.log(data)
         }catch (error){
           console.error('Error: ', error)
         }
