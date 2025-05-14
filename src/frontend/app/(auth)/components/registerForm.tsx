@@ -92,7 +92,7 @@ function RegisterForm({ setRegister }: any) {
             width: "100%",
             height:40,
             textAlign: 'center',
-            color: "#0000"
+            color: "#000"
            }} value={login} onChangeText={(newText) => setLogin(newText)} />
         </View>
         
@@ -113,7 +113,7 @@ function RegisterForm({ setRegister }: any) {
               height: 40,
               textAlign: 'center',
               minHeight: "auto",
-              color: "#0000"
+              color: "#000"
             }} secureTextEntry={true} value={password} onChangeText={(newText) => setPassword(newText)}  />
           </View>
         </View>
@@ -135,7 +135,7 @@ function RegisterForm({ setRegister }: any) {
             height: 40,
             textAlign: 'center',
             minHeight: "auto",
-            color: "#0000"
+            color: "#000"
           }} secureTextEntry={true} value={passwordConf} onChangeText={(newText) => setPasswordConf(newText)}  />
         </View>
         <Pressable style={{ 

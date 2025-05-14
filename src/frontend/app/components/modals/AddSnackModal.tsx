@@ -91,7 +91,7 @@ const AddSnackModal = ({ snackVis, setSnackVis}: any) => {
                     borderStyle: "solid",
                     width: "100%",
                     height: 40,
-                    color: "#0000",
+                    color: "#000",
                     textAlign: 'center' }} value={snackName} onChangeText={(text) => setSnackName(text)} />
 
                 <Button title='CREATE' onPress={addSnack} />

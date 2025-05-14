@@ -177,7 +177,7 @@ const Populated = ({ snacks, setSnacks }: any) => {
                         height: 40,
                         textAlign: 'center',
                         margin: "auto",
-                        color: "#0000"
+                        color: "#000"
                     }} />
                 </View>
                 <ScrollView contentContainerStyle={{

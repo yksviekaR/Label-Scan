@@ -137,11 +137,11 @@ export default function Index() {
       <View style={{ 
         display: "flex",
         position: "absolute",
-        top: "85%",
+        top: "80%",
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        height: "25%",
+        height: "30%",
         borderTopWidth: 1,
         borderStyle: "solid",
         paddingBottom: insets.bottom

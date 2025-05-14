@@ -81,7 +81,7 @@ const add = () => {
           borderWidth: 1,
           borderRadius: 3,
           textAlign: 'center',
-          color: "#0000"
+          color: "#000"
 
          }} onChangeText={(newItemName) => {
           newItem.itemName = newItemName
@@ -90,7 +90,7 @@ const add = () => {
           borderWidth: 1,
           borderRadius: 3,
           textAlign: 'center',
-          color: "#0000"
+          color: "#000"
 
          }} onChangeText={(newBarcode) => {
           newItem.barcode = newBarcode
@@ -99,7 +99,7 @@ const add = () => {
           borderWidth: 1,
           borderRadius: 3,
           textAlign: 'center',
-          color: "#0000"
+          color: "#000"
 
          }} maxLength={200} multiline={true}  onChangeText={(newDescription) => {
           newItem.description = newDescription 
@@ -123,7 +123,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newEV) => {
                 newItem.energyValue = Number(newEV)
@@ -132,7 +132,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newFat) => {
                 newItem.fat = Number(newFat)
@@ -141,7 +141,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newOFS) => {
                 newItem.ofWhichSaturates = Number(newOFS)
@@ -150,7 +150,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newprotein) => {
                 newItem.protein = Number(newprotein)
@@ -167,7 +167,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newsalt) => {
                 newItem.salt = Number(newsalt)
@@ -176,7 +176,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newCarb) => {
                 newItem.carbohydrates = Number(newCarb)
@@ -185,7 +185,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newOFS) => {
                 newItem.ofWhichSugars = Number(newOFS)
@@ -194,7 +194,7 @@ const add = () => {
               borderWidth: 1,
               borderRadius: 3,
               textAlign: 'center',
-              color: "#0000"
+              color: "#000"
 
               }} onChangeText={(newFiber) => {
                 newItem.fiber = Number(newFiber)
