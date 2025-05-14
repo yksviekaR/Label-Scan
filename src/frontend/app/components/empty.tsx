@@ -45,7 +45,7 @@ function Empty({ setSnackVis }: any) {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          height: "75%"
+          height: "65%"
          }}>
             <Text style={{ 
               textAlign: "center", textTransform: "uppercase"

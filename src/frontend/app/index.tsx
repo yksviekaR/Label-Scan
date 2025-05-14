@@ -141,7 +141,7 @@ export default function Index() {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        height: "20%",
+        height: "25%",
         borderTopWidth: 1,
         borderStyle: "solid",
         paddingBottom: insets.bottom

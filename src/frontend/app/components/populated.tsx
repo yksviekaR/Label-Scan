@@ -62,7 +62,7 @@ function Populated({ snacks, setSnacks, setSnackVis }: any) {
           </View>
         </View>
         <View style={{ 
-          height: "70%"
+          height: "65%"
          }}>
           <ScrollView  contentContainerStyle={{
           flexGrow: 1,

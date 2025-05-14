@@ -80,7 +80,8 @@ const add = () => {
         <Text style={{ textAlign: 'center' }}>Item name: </Text><TextInput style={{ 
           borderWidth: 1,
           borderRadius: 3,
-          textAlign: 'center'
+          textAlign: 'center',
+          color: "#0000"
 
          }} onChangeText={(newItemName) => {
           newItem.itemName = newItemName
@@ -88,7 +89,8 @@ const add = () => {
         <Text style={{ textAlign: 'center' }}>Barcode: </Text><TextInput readOnly={true} style={{ 
           borderWidth: 1,
           borderRadius: 3,
-          textAlign: 'center'
+          textAlign: 'center',
+          color: "#0000"
 
          }} onChangeText={(newBarcode) => {
           newItem.barcode = newBarcode
@@ -96,7 +98,8 @@ const add = () => {
         <Text style={{ textAlign: 'center' }}>Description</Text><TextInput style={{ 
           borderWidth: 1,
           borderRadius: 3,
-          textAlign: 'center'
+          textAlign: 'center',
+          color: "#0000"
 
          }} maxLength={200} multiline={true}  onChangeText={(newDescription) => {
           newItem.description = newDescription 
@@ -119,7 +122,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Energy value: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newEV) => {
                 newItem.energyValue = Number(newEV)
@@ -127,7 +131,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Fat: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newFat) => {
                 newItem.fat = Number(newFat)
@@ -135,7 +140,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Of Which Saturates: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newOFS) => {
                 newItem.ofWhichSaturates = Number(newOFS)
@@ -143,7 +149,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Protein: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newprotein) => {
                 newItem.protein = Number(newprotein)
@@ -159,7 +166,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Salt: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newsalt) => {
                 newItem.salt = Number(newsalt)
@@ -167,7 +175,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Carbohydrates: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newCarb) => {
                 newItem.carbohydrates = Number(newCarb)
@@ -175,7 +184,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>of which sugars: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newOFS) => {
                 newItem.ofWhichSugars = Number(newOFS)
@@ -183,7 +193,8 @@ const add = () => {
             <Text style={{ textAlign: 'center' }}>Fiber: </Text><TextInput style={{ 
               borderWidth: 1,
               borderRadius: 3,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
 
               }} onChangeText={(newFiber) => {
                 newItem.fiber = Number(newFiber)

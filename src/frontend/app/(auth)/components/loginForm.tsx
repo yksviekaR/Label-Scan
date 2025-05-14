@@ -95,7 +95,8 @@ function LoginForm({ setRegister }: any) {
             borderStyle: "solid",
             width: "100%",
             height: 40,
-            textAlign: 'center'
+            textAlign: 'center',
+            color: "#0000"
            }} value={login} onChangeText={(newText) => setLogin(newText)} />
         </View>
         
@@ -115,7 +116,8 @@ function LoginForm({ setRegister }: any) {
               borderStyle: "solid",
               width: "80%",
               height: 40,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: "#0000"
             }} secureTextEntry={passVis} value={password} onChangeText={(newText) => setPassword(newText)}  />
             <Pressable style={{ 
               height: 5,
