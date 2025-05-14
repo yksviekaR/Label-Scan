@@ -1,4 +1,3 @@
-Marcin
 # Label-Scan
 
 ## > ⚠️ Apliakcja jest przeznaczona na urządzenia *MOBILNE* z systemem ANDROID ⚠️
@@ -14,7 +13,7 @@ Instnieją dwa sposoby uruchomienia aplikacji:
 
 #### Wymagania
 
-1. Aplikacja [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent) pobrana na urządzeniu na urządzniu mobilnym
+1. Aplikacja [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent) pobrana na urządzeniu mobilnym
 2. Komputer z zainstalowanymi programami: git, node
 
 #### Kroki
