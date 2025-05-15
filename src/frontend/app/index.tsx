@@ -13,7 +13,7 @@ import NotFoundModal from "./components/modals/NotFoundModal";
 import AddSnackModal from "./components/modals/AddSnackModal";
 import { useIsFocused } from "@react-navigation/native";
 import url from "../config/url";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Index() {
 
@@ -117,7 +117,7 @@ export default function Index() {
   }
 
   return (
-    isFocused ? <>
+    isFocused ? <SafeAreaProvider>
 
       {/* <Button title="check1" onPress={() => {setFoundVis(!foundVis)}} />
       <Button title="check2" onPress={() => {setNFoundVis(!nFoundVis)}} />
@@ -136,14 +136,13 @@ export default function Index() {
       <View style={{ 
         display: "flex",
         position: "absolute",
-        top: "80%",
+        top: "85%",
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
         height: "15%",
         borderTopWidth: 1,
         borderStyle: "solid",
-        paddingBottom: insets.bottom
       }}>
         <View>
             <View>
@@ -170,7 +169,7 @@ export default function Index() {
             </View>
         </View>
       </View>
-    </> : null
+    </SafeAreaProvider> : null
     
   );
 }
