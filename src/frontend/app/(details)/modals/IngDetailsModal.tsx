@@ -1,5 +1,4 @@
-import { useFocusEffect } from 'expo-router'
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { Modal, View, Text, Button } from 'react-native'
 
 const IngDetailsModal = ({ detailsVis, setDetailsVis, item, setItem }: any) => {

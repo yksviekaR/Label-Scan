@@ -1,11 +1,8 @@
 import { Stack } from "expo-router";
-import { useState, useEffect, useLayoutEffect } from "react";
-import { Pressable, TouchableOpacity } from "react-native";
-import { View, Text, TextInputComponent, TextInput, Button } from 'react-native'
+import { TouchableOpacity } from "react-native";
+import { View, Text } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Icon from "react-native-vector-icons/FontAwesome"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 function Title({navigation}: {navigation: any}) {

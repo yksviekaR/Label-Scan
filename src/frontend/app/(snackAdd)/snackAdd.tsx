@@ -1,15 +1,11 @@
-import { Link, useFocusEffect } from "expo-router";
-import React from "react";
-import { useEffect, useState } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
+import { useFocusEffect } from "expo-router";
+import React, { useCallback } from "react";
+import { useState } from "react";
+import { useNavigation } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
-import { useIsFocused, useRoute } from "@react-navigation/native";
+import { useIsFocused } from "@react-navigation/native";
 import Populated from "./components/populated";
 import Empty from "./components/empty";
-import { loadOptions } from "@babel/core";
 import url from "../../config/url";
 
 
@@ -27,9 +23,11 @@ const snackAdd = () => {
     const [anySnacks, setAnySnacks] = useState(false);
 
 
-    useEffect(() => {
-      getSnacks()
-    }, [])
+    useFocusEffect(
+      useCallback(() =>{
+        getSnacks()
+      }, [])
+    )
 
     const _retriveLoggedUser = async () =>{
         try{
@@ -61,12 +59,15 @@ const snackAdd = () => {
 
             const data = await response.json()
 
-            if(data === undefined){
-              setAnySnacks(false)
-            }else{
+            if(Array.isArray(data) && data.length != 0){
               setSnacks(data)
               setAnySnacks(true)
+            }else{
+              
+              setAnySnacks(false)
             }
+            console.log(data);
+            
           }
         }catch (error){
           console.error('Error: ', error)

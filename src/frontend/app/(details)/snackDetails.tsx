@@ -1,11 +1,8 @@
-import { Link, useFocusEffect} from "expo-router";
-import React, { useLayoutEffect } from "react";
-import { useEffect, useState, useCallback } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView, TouchableOpacity } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
+import { useFocusEffect} from "expo-router";
+import React from "react";
+import { useState, useCallback } from "react";
+import { Text, View, Button, ScrollView } from "react-native";
+import { useNavigation, useLocalSearchParams } from "expo-router";
 import IngDetailsModal from "./modals/IngDetailsModal";
 import { useIsFocused } from "@react-navigation/native";
 import url from "../../config/url";

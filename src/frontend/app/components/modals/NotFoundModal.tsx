@@ -1,11 +1,6 @@
 import React from 'react'
-import { Link, useFocusEffect } from "expo-router";
-import { useEffect, useState } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
+import { Text, View, Button, Modal } from "react-native";
+import { useNavigation } from "expo-router";
 
 const NotFoundModal = ({ nFoundVis, setNFoundVis, setItem, _clearCodeTemp }: any) => {
 

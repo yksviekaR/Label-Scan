@@ -1,11 +1,6 @@
-import { Link, useFocusEffect } from "expo-router";
 import React from "react";
-import { useEffect, useState } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView, Touchable, TouchableOpacity } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
+import { Text, View, Button, ScrollView, TouchableOpacity } from "react-native";
+import { useRouter} from "expo-router";
 import DeleteIcon from 'react-native-vector-icons/MaterialIcons'
 import url from "../../config/url";
 

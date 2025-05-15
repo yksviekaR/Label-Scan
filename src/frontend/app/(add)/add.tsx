@@ -1,7 +1,5 @@
-import { View, Text, TextInputComponent, TextInput, Button } from 'react-native'
-import React, { useCallback, useEffect } from 'react'
-import { CameraView } from 'expo-camera'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { View, Text, TextInput, Button } from 'react-native'
+import React, { useCallback } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from "react";
 import { useNavigation, useFocusEffect } from 'expo-router'

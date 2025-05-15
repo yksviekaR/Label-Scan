@@ -1,5 +1,5 @@
-import { View, Text, TextInputComponent, TextInput, Button, Pressable } from 'react-native'
-import React, { useEffect } from 'react'
+import { View, Text, TextInput, Pressable } from 'react-native'
+import React from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from "react";
 import { useNavigation, useRouter } from 'expo-router'
@@ -65,6 +65,7 @@ function LoginForm({ setRegister }: any) {
         borderRadius: 30,
         width: "70%",
         margin: "auto",
+        marginBottom: "30%",
         padding: 20
        }}>
         <Text style={{ 

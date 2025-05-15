@@ -1,12 +1,9 @@
-import { Link, useFocusEffect } from "expo-router";
+import { useFocusEffect } from "expo-router";
 import React, { useCallback } from "react";
-import { useEffect, useState } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView, TextInput } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
+import { useState } from "react";
+import { Text, View, Button, ScrollView, TextInput } from "react-native";
+import { useNavigation } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
-import { useRoute } from "@react-navigation/native";
 import url from "../../../config/url";
 
 
@@ -170,7 +167,7 @@ const Populated = ({ snacks, setSnacks }: any) => {
                         fontSize: 25,
                         textTransform: "uppercase"
                     }}>ADD INGREDIENT TO SNACK</Text>
-                    <TextInput placeholder="Insert Dose" value={dose} onChangeText={newText => setDose(newText)} style={{ 
+                    <TextInput placeholder="Insert Dose" placeholderTextColor="#000" value={dose} onChangeText={newText => setDose(newText)} style={{ 
                         borderWidth: 1,
                         borderStyle: "solid",
                         width: "100%",
@@ -193,7 +190,7 @@ const Populated = ({ snacks, setSnacks }: any) => {
                                 <Button title={`${i.snackName}`} onPress={(e) => {
                                     e.preventDefault()
                                     if(dose == ""){
-                                        alert("remmber to insert dose of product ;)")
+                                        alert("remember to insert dose of product ;)")
                                         return
                                     }else{
                                         dataConfig(i.id_s)

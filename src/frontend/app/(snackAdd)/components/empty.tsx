@@ -1,17 +1,24 @@
-import { Link, useFocusEffect } from "expo-router";
 import React from "react";
-import { useEffect, useState } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
-import { useRoute } from "@react-navigation/native";
+import { Text, View, Button } from "react-native";
+import { useNavigation } from "expo-router";
 
 const Empty = () => {
+
+  const navigation: any = useNavigation()
+
   return (
-    <View>
+    <View style={{ 
+      margin: "auto"
+     }}>
         <Text style={{ margin: "auto", textAlign: "center", textTransform: "uppercase" }}>It seems you dont have any snacks saved</Text>
+        <View style={{ 
+          marginInline: "auto",
+          width: "40%"
+         }}>
+          <Button title="Go back" onPress={() =>{
+            navigation.replace("index")
+          }} />
+        </View>
     </View>
   )
 }

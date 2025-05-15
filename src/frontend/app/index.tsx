@@ -1,11 +1,10 @@
-import { Link, useFocusEffect } from "expo-router";
+import { useFocusEffect } from "expo-router";
 import React, { useLayoutEffect } from "react";
-import { useEffect, useState, useCallback } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView, TouchableOpacity } from "react-native";
+import { useState, useCallback } from "react";
+import { View, TouchableOpacity } from "react-native";
 import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
+import { useNavigation } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Route } from "expo-router/build/Route";
 import Icon from "react-native-vector-icons/Feather";
 import IfLogged from "./components/ifLogged";
 import NotLogged from "./components/notLogged";
@@ -141,7 +140,7 @@ export default function Index() {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        height: "30%",
+        height: "15%",
         borderTopWidth: 1,
         borderStyle: "solid",
         paddingBottom: insets.bottom

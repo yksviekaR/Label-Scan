@@ -1,11 +1,8 @@
-import { View, Text, TextInputComponent, TextInput, Button, Pressable } from 'react-native'
-import React, { useEffect } from 'react'
-import { CameraView } from 'expo-camera'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { View, Text, TextInput, Pressable } from 'react-native'
+import React from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useState } from "react";
 import { useNavigation } from 'expo-router'
-import PasswordIcon from 'react-native-vector-icons/Feather'
 import url from "../../../config/url";
 
 
@@ -61,6 +58,7 @@ function RegisterForm({ setRegister }: any) {
         borderRadius: 30,
         width: "70%",
         margin: "auto",
+        marginBottom: "5%",
         padding: 20
        }}>
         <Text style={{ 

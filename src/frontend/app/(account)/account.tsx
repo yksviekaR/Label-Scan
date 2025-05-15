@@ -2,7 +2,7 @@ import { View, Text, Button } from 'react-native'
 import React, { useState, useCallback } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation, useFocusEffect, useRouter, useLocalSearchParams,  } from 'expo-router'
-import { useIsFocused, useRoute } from '@react-navigation/native'
+import { useIsFocused } from '@react-navigation/native'
 
 
 const account = () => {

@@ -1,11 +1,9 @@
 import React, { useCallback } from 'react'
-import { Link, useFocusEffect } from "expo-router";
-import { useEffect, useState } from "react";
-import { Text, View, Button, Pressable, Modal, ScrollView, TextInput } from "react-native";
-import { useCameraPermissions } from "expo-camera"
-import { useNavigation, useRouter, useLocalSearchParams } from "expo-router";
+import { useFocusEffect } from "expo-router";
+import { useState } from "react";
+import { Text, View, Button, Modal, TextInput } from "react-native";
+import { useNavigation } from "expo-router";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Route } from "expo-router/build/Route";
 import url from "../../../config/url";
 
 
